@@ -29,8 +29,8 @@ price_soup = bs.BeautifulSoup(html_code.text, 'html.parser')
 gas_results = price_soup.find_all('', attrs={'class':'style__header3___3T2tm style__header___onURp style__snug___2HJ4K styles__priceHeader___38ONR'})
 state_results = price_soup.find_all('', attrs={'class':'styles__resultsHeader___1TEzC'})
 
-state = state_results[0]
-state = str(state.contents)
+state = str(state_results[0].contents)
+#state = str(state.contents)
 state = state[2:]
 STATE = []
 
