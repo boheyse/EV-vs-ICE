@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import types
 
-
 class vehicleData(object):
 
     data = pd.read_csv('vehicles.csv')
@@ -99,7 +98,7 @@ class vehicleData(object):
               self.year[index], "\nCity MPG: ", self.city_mpg[index], "\nHighway MPG: ",
               self.hiway_mpg[index])
 
-bo = vehicle_data()
+bo = vehicleData()
 
 man = bo.get_brand()
 mod = bo.get_model(man)
