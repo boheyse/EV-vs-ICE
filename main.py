@@ -4,17 +4,19 @@
 from energyData import energyData
 from vehicleData import vehicleData
 
-out_file = open('user_report.txt', 'w')
+#out_file = open('user_report.txt', 'w')
 
 
-print("Make: ", self.make[index], "\nModel: ", self.model[index], "\nYear: ",
-      self.year[index], "\nCity MPG: ", self.city_mpg[index], "\nHighway MPG: ",
-      self.hiway_mpg[index])
+bo = energyData()
+bo.get_data()
 
+print("Avg", bo.gas_avg)
+print("Low", bo.gas_low)
+print(bo.user_state)
+#print(bo.state_elec_rate)
 
-#bo = energyData()
-me = vehicleData()
-man = me.get_brand()
-mod = me.get_model(man)
-year = me.get_year(mod)
-me.print_vehicle_data()
+# me = vehicleData()
+# man = me.get_brand()
+# mod = me.get_model(man)
+# year = me.get_year(mod)
+# me.print_vehicle_data()

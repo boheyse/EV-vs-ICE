@@ -6,14 +6,18 @@ import pandas as pd
 import numpy as np
 
 class energyData(object):
+    zip_code = '78666'#input("Enter Zip Code: ")
+    miles_Driven = '5'#input("Miles driven per month: ")
+    user_state = ""
+    gas_avg = ""
+    gas_low = ""
+    state_elec_rate = ""
 
     def __init__(self):
         return
 
     def get_data(self):
         #take the users input as the zip_code to search for on gasbuddy
-        zip_code = input("Enter Zip Code: ")
-        miles_Driven = input("Miles driven per month: ")
 
         data = pd.read_csv('electric_rates.csv')
         states = data.iloc[3:53, 0:2].values
@@ -23,7 +27,7 @@ class energyData(object):
         #allows access to the url
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
-        gas_url= "https://www.gasbuddy.com/home?search=" + zip_code + "&fuel=1"
+        gas_url= "https://www.gasbuddy.com/home?search=" + self.zip_code + "&fuel=1"
         #grabs all html code from url
         html_code = requests.get(gas_url, headers=headers)
 
@@ -51,24 +55,18 @@ class energyData(object):
             for x in range(start_index+2, end_index):
                 STATE.append(state[x])
 
-        usable_state = "".join(STATE)
-        print(usable_state)
-
+        self.user_state = "".join(STATE)
 
         #store the html code we want into a string variable so we can grab the average price
         lowest_price = gas_results[0]
         average_price = gas_results[1]
-        usable_avg = str(average_price.contents)
-        usable_avg = usable_avg[3:7]
-        usable_low = str(lowest_price.contents)
-        usable_low = usable_low[3:7]
-
-        print("Avg", usable_avg)
-        print("Low", usable_low)
+        self.gas_avg = str(average_price.contents)
+        self.gas_avg = self.gas_avg[3:7]
+        self.gas_low = str(lowest_price.contents)
+        self.gas_low = self.gas_low[3:7]
 
         #takes the state we are in as output, compares with dictionary of electric rates to find states rate
-
         for x in range(len(elec_data)):
-            if state in elec_data:
-                print(elec_data[state])
+            if self.user_state in elec_data:
+                self.state_elec_rate = elec_data[self.user_state]
                 break
