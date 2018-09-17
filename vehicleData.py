@@ -10,6 +10,8 @@ class vehicleData(object):
     make = data.iloc[0:40056, 5].values
     model = data.iloc[0:40056, 6].values
     year = data.iloc[0:40056, 7].values
+    model_indices = []
+    user_year = ""
 
     def __init__(self):
         return
@@ -65,17 +67,17 @@ class vehicleData(object):
 
     def get_year(self, mod):
         year_produced = []
-        model_indices = []
+
 
         #makes a list of the indices for a specific model
         m_count = 0
         for i in self.model:
             if i == mod:
-                model_indices.append(m_count)
+                self.model_indices.append(m_count)
             m_count += 1
 
         #makes a list of all years that specific model is available
-        for y in model_indices:
+        for y in self.model_indices:
             if self.year[y] not in year_produced:
                 year_produced.append(self.year[y])
 
@@ -86,21 +88,12 @@ class vehicleData(object):
 
         print("What year is your car: ")
 
-        user_year = str(input())
+        self.user_year = str(input())
 
-        for y in model_indices:
-            if str(self.year[y]) == user_year:
+    def vehicle_index(self):
+        for y in self.model_indices:
+            if str(self.year[y]) == self.user_year:
                 return y
                 break
 
-    def print_vehicle_data(self):
-        print("Make: ", self.make[index], "\nModel: ", self.model[index], "\nYear: ",
-              self.year[index], "\nCity MPG: ", self.city_mpg[index], "\nHighway MPG: ",
-              self.hiway_mpg[index])
-
-bo = vehicleData()
-
-man = bo.get_brand()
-mod = bo.get_model(man)
-index = bo.get_year(mod)
-bo.print_vehicle_data()
+        
