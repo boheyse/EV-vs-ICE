@@ -1,7 +1,12 @@
 ************************* Your Vehicle vs Electric Vehicles ****************************
 
-Vehicle Data                                                Energy Data 
+     Vehicle Data                                               Energy Data 
 
-Manufacturer: Honda                                     State: Texas 
-Model: Fit                                             Average Electric Rate: 11.65
-Year: 2019                                           Miles Driven Per Month: 5
+Manufacturer: Acura                                    State: Texas
+Model: TSX                                             Average Electric Rate: $ 0.1165/kWh
+Year: 2004                                             Average Gas Cost Per Gallon: 2.57
+City MPG: 19                                           Lowest Gas Cost Per Gallon: 2.37
+Highway MPG: 27                                        Miles Driven Per Month: 700
+Average MPG: 23.8                                      Gallons Per Month: 29.4
+                                                       Average Gas Cost Per Month: $ 75.56
+                                                       Lowest Gas Cost Per Month: $ 69.68

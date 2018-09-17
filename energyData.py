@@ -7,7 +7,7 @@ import numpy as np
 
 class energyData(object):
     zip_code = '78666'#input("Enter Zip Code: ")
-    miles_Driven = '5'#input("Miles driven per month: ")
+    miles_Driven = '700'#input("Miles driven per month: ")
     user_state = ""
     gas_avg = ""
     gas_low = ""

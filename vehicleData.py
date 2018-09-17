@@ -35,7 +35,7 @@ class vehicleData(object):
             print(y)
 
         print("\nChoose One Of The Above Manufacturers: ")
-        man = 'Honda'#input()
+        man = 'Acura'#input()
         return man
 
     def get_model(self, man):
@@ -63,7 +63,7 @@ class vehicleData(object):
         for y in models:
             print(y)
         print("\nChoose One Of The Above Models: ")
-        self.user_mod = 'Fit'#input()
+        self.user_mod = 'TSX'#input()
         return self.user_mod
 
     def get_year(self, user_mod):
@@ -89,9 +89,9 @@ class vehicleData(object):
 
         print("What year is your car: ")
 
-        self.user_year = '2019'#str(input())
+        self.user_year = '2004'#str(input())
 
         for y in self.model_indices:
             if str(self.year[y]) == self.user_year:
-                return str(self.year[y])
+                return y
                 break
