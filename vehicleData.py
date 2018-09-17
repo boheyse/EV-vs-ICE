@@ -11,6 +11,7 @@ class vehicleData(object):
     model = data.iloc[0:40056, 6].values
     year = data.iloc[0:40056, 7].values
     model_indices = []
+    user_mod = ""
     user_year = ""
 
     def __init__(self):
@@ -34,7 +35,7 @@ class vehicleData(object):
             print(y)
 
         print("\nChoose One Of The Above Manufacturers: ")
-        man = input()
+        man = 'Honda'#input()
         return man
 
     def get_model(self, man):
@@ -62,17 +63,17 @@ class vehicleData(object):
         for y in models:
             print(y)
         print("\nChoose One Of The Above Models: ")
-        mod = input()
-        return mod
+        self.user_mod = 'Fit'#input()
+        return self.user_mod
 
-    def get_year(self, mod):
+    def get_year(self, user_mod):
         year_produced = []
-
 
         #makes a list of the indices for a specific model
         m_count = 0
+
         for i in self.model:
-            if i == mod:
+            if i.upper() == user_mod.upper():
                 self.model_indices.append(m_count)
             m_count += 1
 
@@ -88,12 +89,9 @@ class vehicleData(object):
 
         print("What year is your car: ")
 
-        self.user_year = str(input())
+        self.user_year = '2019'#str(input())
 
-    def vehicle_index(self):
         for y in self.model_indices:
             if str(self.year[y]) == self.user_year:
-                return y
+                return str(self.year[y])
                 break
-
-        

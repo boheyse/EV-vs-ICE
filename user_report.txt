@@ -1,0 +1,7 @@
+************************* Your Vehicle vs Electric Vehicles ****************************
+
+Vehicle Data                                                Energy Data 
+
+Manufacturer: Honda                                     State: Texas 
+Model: Fit                                             Average Electric Rate: 11.65
+Year: 2019                                           Miles Driven Per Month: 5
